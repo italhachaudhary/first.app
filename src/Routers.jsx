@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import About from "./components/about";
 import Contact from "./components/contact";
 import Home from "./components/home";
@@ -13,22 +13,23 @@ export default function Routers() {
           <nav>
             <ul className="list-unstyled d-flex align-items-center mb-0 ">
               <li className="me-3">
-                <Link to="/">Home</Link>
+                <Link to="/home">Home</Link>
               </li>
               <li className="me-3">
-                <Link to="about">About</Link>
+                <Link to="/about">About</Link>
               </li>
               <li className="me-3">
-                <Link to="contact">Contact</Link>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </nav>
         </header>
       </div>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} /> 
+        <Route path="/contact" element={<Navigate to="/home"/>} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} /> 
         <Route path="*" element={<PageNotFound/>} />      
       </Routes>
     </>
