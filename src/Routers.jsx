@@ -21,16 +21,22 @@ export default function Routers() {
               <li className="me-3">
                 <Link to="/contact">Contact</Link>
               </li>
+              <li className="me-3">
+                <Link to="/students">Students</Link>
+              </li>
             </ul>
           </nav>
         </header>
       </div>
       <Routes>
-        <Route path="/" element={<Navigate to="/home"/>} />
+        <Route path="/students" element={<Students />} />
+        <Route path="/students/:Talha" element={<Students />} />
+
+        <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} /> 
-        <Route path="*" element={<PageNotFound/>} />      
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );
